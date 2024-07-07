@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Cargas de Viento</title>
+    <link rel="stylesheet" href="DIE.css">
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+    <script src="d.js"></script>
+</head>
+<body>
+    <div class="container">
+    <h1>Cálculo de cargas de viento <button class="tooltip-btn" onclick="toggleTooltip('tooltip_cargas_viento')">?</button></h1>
+    <div class="tooltip" id="tooltip_cargas_viento">
+        <p>Calcular la carga de viento es esencial para diseñar y construir estructuras seguras, eficientes y cumplir con los estándares de seguridad y normativas vigentes. Esto contribuye no solo a la seguridad estructural, sino también al bienestar y la eficiencia de las comunidades y entornos construidos.</p>
+        <button class="close-btn" onclick="closeTooltip('tooltip_cargas_viento')">X</button>
+    </div>
+    
+    <!-- Resto del contenido del contenedor -->
+    <!-- ... -->
+        <div class="formula-container">
+            <span>F = 0.5 × C<sub>p</sub> × V<sup>2</sup> × A</span>
+        </div>
+        <div class="input-container">
+    <label for="coef_presion">Coeficiente de Presión (Cp):</label>
+    <div class="tooltip-container">
+        <input type="number" id="coef_presion" value="1.2" step="0.1">
+        <button class="tooltip-btn" onclick="toggleTooltip('tooltip_coef_presion')">?</button>
+        <div class="tooltip" id="tooltip_coef_presion">
+            <p>Es el coeficiente de presión (Cp) que describe cómo la presión del viento varía alrededor de un objeto. Un Cp mayor indica una mayor presión sobre el objeto.</p>
+            <button class="close-btn" onclick="closeTooltip('tooltip_coef_presion')">X</button>
+        </div>
+    </div>
+    <label for="velocidad_viento">Velocidad del Viento (m/s):</label>
+    <div class="tooltip-container">
+        <input type="number" id="velocidad_viento" value="10" step="1">
+        <button class="tooltip-btn" onclick="toggleTooltip('tooltip_velocidad_viento')">?</button>
+        <div class="tooltip" id="tooltip_velocidad_viento">
+            <p>Es la velocidad del viento en metros por segundo (m/s). Determina la velocidad a la que el viento está soplando, afectando directamente la fuerza que ejerce sobre el objeto expuesto.</p>
+            <button class="close-btn" onclick="closeTooltip('tooltip_velocidad_viento')">X</button>
+        </div>
+    </div>
+    <label for="area_expuesta">Área Expuesta (m²):</label>
+    <div class="tooltip-container">
+        <input type="number" id="area_expuesta" value="50" step="1">
+        <button class="tooltip-btn" onclick="toggleTooltip('tooltip_area_expuesta')">?</button>
+        <div class="tooltip" id="tooltip_area_expuesta">
+            <p>Es el área expuesta al viento en metros cuadrados (m²). Representa el tamaño del objeto o superficie sobre el cual el viento está actuando.</p>
+            <button class="close-btn" onclick="closeTooltip('tooltip_area_expuesta')">X</button>
+        </div>
+        <div class="button-container">
+            <button class="btn" onclick="calcularYActualizarGrafico()">Calcular y Actualizar Gráfico</button>
+            <button class="btn btn-reset" onclick="resetearValores()">Reset</button>
+        </div>
+        <div id="resultado"></div>
+        <div class="chart-container">
+            <div id="chart"></div>
+            <div class="color-bar">
+                <div class="color-segment" style="background-color: green;">Débil</div>
+                <div class="color-segment" style="background-color: yellow;">Moderada</div>
+                <div class="color-segment" style="background-color: red;">Fuerte</div>
+            </div>
+        </div>
+        <div class="classification">
+            <div class="classification-item">
+                </script>
+</body>
+</html>
+  <div class="classification">
+    <div class="classification-item">
+        <div class="color-indicator" style="background-color: #81c784;"></div>
+        <p>Débil (Menor que 50 N) - Pueden ser adecuadas para estructuras pequeñas o bien protegidas, donde el viento no representa un riesgo significativo de daño.</p>
+    </div>
+    <div class="classification-item">
+        <div class="color-indicator" style="background-color: #fff176;"></div>
+        <p>Moderada (50 N - 200 N) - Pueden requerir consideraciones adicionales en el diseño y la construcción para garantizar la resistencia adecuada contra el viento.</p>
+    </div>
+    <div class="classification-item">
+        <div class="color-indicator" style="background-color: #e57373;"></div>
+        <p>Fuerte (200 N o más) - Pueden causar daños significativos a edificaciones y otras estructuras, por lo que es crucial implementar medidas de seguridad y construcción adecuadas.</p>
+    </div>
+</div>
